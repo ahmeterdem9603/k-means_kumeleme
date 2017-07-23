@@ -7,3 +7,6 @@ Bu grupların her birine *küme* denir. Kümeleme analizi işlemine ise *kümele
 benzer özellik gösteren veri elemanlarının kendi aralarında gruplara ayrılmasıdır. +
 
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/tree_complete_plot%20(2).jpg[R]
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/aaa.PNG[R]
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/bbbb.PNG[R]
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/c.PNG[R]
