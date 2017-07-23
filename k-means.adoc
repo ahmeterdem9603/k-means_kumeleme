@@ -26,3 +26,16 @@ sabit bir küme sayısına ihtiyaç duyulmasıdır. Küme sayısı *k* ile göst
 elemanlarının birbirlerine olan yakınlıklarına göre oluşacak grup sayısını ifade eder.
 Buna göre k önceden bilinen ve kümeleme işlemi bitene kadar değeri değişmeyen
 sabit bir pozitif tam sayıdır. +
+
+== K-Means Kümeleme Matematiği +
+K-Means algoritmasında verilerin merkeze olan uzaklıklarının hesaplanmasında *öklit uzaklığı formülü* temel alınmıştır. 
+Dolayısıyla öklit (euclidean) uzaklığı hakkında bazı temel bilgiler şu şekildedir ; +
+
+*Öklit Uzaklığı* +
+Öklid uzaklığı formülleri standartlaştırılmış verilerle değil, işlenmemiş verilerle hesaplama yapar. Öklid uzaklıkları kümeleme analizine sıra dışı olabilecek yeni nesnelerin eklenmesinden etkilenmezler. Ancak boyutlar arasındaki ölçek farklılıkları Öklid uzaklıklarını önemli ölçüde etkilemektedir. Öklid uzaklık formülü en yaygın olarak kullanılan uzaklık hesaplama formülüdür. +
+
+Öklid uzaklık ölçüsü kullanılarak iki birim arasındaki uzaklık n birim sayısı ve p değişken sayısı olmak üzere; i,j = 1,2,3……n , i. ve j. birimin birbirine olan uzaklığı +
+
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ffff.PNG[R]
+
+
