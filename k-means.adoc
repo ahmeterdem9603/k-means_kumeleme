@@ -43,3 +43,4 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ffff.PNG[R
 - Tüm nesnelerin merkezlere olan uzaklıklarını öklit formülü yardımıyla bul ve her nesneyi kendisine en yakın kümeye dahil et. +
 - Oluşan yeni kümelerin ağırlık merkezlerini (ortalama değeri) hesapla ve yeni küme merkezlerini belirle. +
 - En don bulunan küme merkezleri, bir önceki merkezlerle eşit olana kadar ya da belirlenen döngü sayısına ulaşana kadar son iki işlemi tekrarla. +
+
