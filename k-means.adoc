@@ -27,7 +27,7 @@ elemanlarının birbirlerine olan yakınlıklarına göre oluşacak grup sayıs�
 Buna göre k önceden bilinen ve kümeleme işlemi bitene kadar değeri değişmeyen
 sabit bir pozitif tam sayıdır. +
 
-== K-Means Kümeleme Matematiği +
+*K-Means Algoritmasının Matematiği* +
 K-Means algoritmasında verilerin merkeze olan uzaklıklarının hesaplanmasında *öklit uzaklığı formülü* temel alınmıştır. 
 Dolayısıyla öklit (euclidean) uzaklığı hakkında bazı temel bilgiler şu şekildedir ; +
 
