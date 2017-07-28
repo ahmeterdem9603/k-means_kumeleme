@@ -8,7 +8,7 @@ benzer özellik gösteren veri elemanlarının kendi aralarında gruplara ayrıl
 
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/tree_complete_plot%20(2).jpg[R]
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ikili.PNG[R]
-image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/cc.PNG[R]
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ccc.PNG[R]
 
 == Kümeleme Yöntemleri +
 Kümeleme yöntemleri *hiyerarşik* ve *hiyerarşik olmayan (bölümlemeli)* kümeleme yöntemleri olarak iki ana bölümde incelenir.
@@ -18,7 +18,7 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/K%C3%BCmel
 
 == K-Means Kümeleme Algoritması +
 
-image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/dd.PNG[R]
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ddd.PNG[R]
 
 Algoritmaya k-means adı verilmesinin nedeni, algoritmanın çalışmasından önce
 sabit bir küme sayısına ihtiyaç duyulmasıdır. Küme sayısı *k* ile gösterilir ve
