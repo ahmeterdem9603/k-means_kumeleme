@@ -47,5 +47,10 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ffff.PNG[R
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/grcklm.PNG[R]
 
 *K-Means Akış Diyagramı* +
-*Phyton dilinde K-Means Algoritması Kodu* +
+
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/aksdygrm.PNG[R]
+
+*!* Algoritmik olarak, oluşan yeni kümelerdeki verilerin bir önceki verilerle aynı olmasını da koşul olarak belirtebilirsiniz. Bunun nedeni, küme merkezlerini bulurken verilerin koordinatlarının ortalaması alınır. +
+
+*Phyton dilinde K-Means Algoritmasının Kodu* +
 
