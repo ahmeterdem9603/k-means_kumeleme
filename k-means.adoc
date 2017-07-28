@@ -40,7 +40,7 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ffff.PNG[R
 *K-Means Algoritmasının İşlem Basamakları* +
 
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/adimlar1_2.PNG[R]
-image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/adimlar3_4.PNG[R]
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/addmlar3_4.PNG[R]
 
 *K-Means Akış Diyagramı* +
 
