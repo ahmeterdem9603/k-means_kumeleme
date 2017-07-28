@@ -137,7 +137,7 @@ for i in range(iteration):
                 i3 += 1
         print count1,count2,count3,j
 
-    print "***"
+    print "****************"
     print len(class1),len(class2),len(class3)
     center1 = new_center(class1)
     center2 = new_center(class2)
