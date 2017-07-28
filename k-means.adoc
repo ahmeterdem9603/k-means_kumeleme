@@ -48,9 +48,112 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/grcklm.PNG
 
 *K-Means Akış Diyagramı* +
 
-image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/aksdiagrm%C4%B1.PNG[R]
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/aksdygrami.PNG[R]
 
 *!* Algoritmik olarak, oluşan yeni kümelerdeki verilerin bir önceki verilerle aynı olmasını da koşul olarak belirtebilirsiniz. Bunun nedeni, küme merkezlerini bulurken verilerin koordinatlarının ortalaması alınır. +
 
 *Phyton dilinde K-Means Algoritmasının Kodu* +
+
+[source,python]
+-----------------------------------------
+import math
+
+inputvalue = []
+class1 = []
+class2 = []
+class3 = []
+center1 = [5.5,2.6,4.4,1.2]
+center2 = [5.8,2.7,5.1,1.9]
+center3 = [7.2,3.2,6.0,1.8]
+iteration = 100
+
+def distance(centersw,centersl,centerpw,centerpl,value1,value2,value3,value4):
+    return math.sqrt((centersw-value1)**2 + (centersl-value2)**2 + (centerpw-value3)**2 + (centerpl-value4)**2)
+
+def clustering(center1,center2,center3,value1,value2,value3,value4):
+    for i in range(0,1,1):
+        wclass1 = distance(center1[0],center1[1],center1[2],center1[3],value1,value2,value3,value4)
+        wclass2 = distance(center2[0],center2[1],center2[2],center2[3],value1,value2,value3,value4)
+        wclass3 = distance(center3[0],center3[1],center3[2],center3[3],value1,value2,value3,value4)
+        value = [value1,value2,value3,value4]
+
+        if wclass1 < wclass2 and wclass1 < wclass3 :
+            class1.append(value)
+        elif wclass2 < wclass1 and wclass2 < wclass3 :
+            class2.append(value)
+        elif wclass3 < wclass2 and wclass3 < wclass1 :
+            class3.append(value)
+        else :
+            continue
+
+def new_center(classvalue):
+    x = 0.0
+    y = 0.0
+    z = 0.0
+    t = 0.0
+    for i in range(len(classvalue)):
+        x += classvalue[i][0]
+        y += classvalue[i][1]
+        z += classvalue[i][2]
+        t += classvalue[i][3]
+    return  [x/len(classvalue),y/len(classvalue),z/len(classvalue),t/len(classvalue)]
+
+with open('iris_data.txt') as openfile:
+    for line in openfile:
+        inputvalue.append(line.split(","))
+
+for i in range(len(inputvalue)):
+    for j in range(len(inputvalue[i])):
+        if j == 0 or j % 4 != 0 :
+            inputvalue[i][j] = float(inputvalue[i][j])
+        else:
+            continue
+
+for i in range(iteration):
+    backup_center1 = center1
+    backup_center2 = center2
+    backup_center3 = center3
+    for i in range(0,len(inputvalue),1):
+        clustering(center1,center2,center3, inputvalue[i][0],inputvalue[i][1],inputvalue[i][2],inputvalue[i][3])
+    center1 = new_center(class1)
+    center2 = new_center(class2)
+    center3 = new_center(class3)
+    i1 = 0
+    i2 = 0
+    i3 = 0
+    for i in range(3):
+        count1 = 0
+        count2 = 0
+        count3 = 0
+        for j in range(i*50,(i+1)*50,1):
+            if i1 < len(class1) and class1[i1]==inputvalue[j]:
+                count1+=1
+                i1 += 1
+            elif i2 < len(class2) and class2[i2]==inputvalue[j]:
+                count2+=1
+                i2 += 1
+            elif i3 < len(class3) and class3[i3]==inputvalue[j]:
+                count3+=1
+                i3 += 1
+        print count1,count2,count3,j
+
+    print "****************"
+    print len(class1),len(class2),len(class3)
+    center1 = new_center(class1)
+    center2 = new_center(class2)
+    center3 = new_center(class3)
+    print center1
+    print center2
+    print center3
+    class1 = []
+    class2 = []
+    class3 = []
+    if backup_center1[0]-center1[0]==0 and backup_center1[1]-center1[1]==0 and \
+       backup_center2[0]-center2[0]==0 and backup_center2[1]-center2[1]==0 and \
+       backup_center3[0]-center3[0]==0 and backup_center3[1]-center3[1]==0:
+       break
+    else:
+        continue
+
+-----------------------------------------
 
