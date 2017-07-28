@@ -30,7 +30,7 @@ sabit bir pozitif tam sayıdır. +
 K-Means algoritmasında verilerin merkeze olan uzaklıklarının hesaplanmasında *öklit uzaklığı formülü* temel alınmıştır. 
 Dolayısıyla öklit (euclidean) uzaklığı hakkında bazı temel bilgiler şu şekildedir ; +
 
-*Öklit Uzaklığı* +
+*Öklid Uzaklığı* +
 Öklid uzaklığı formülleri standartlaştırılmış verilerle değil, işlenmemiş verilerle hesaplama yapar. Öklid uzaklıkları kümeleme analizine sıra dışı olabilecek yeni nesnelerin eklenmesinden etkilenmezler. Ancak boyutlar arasındaki ölçek farklılıkları Öklid uzaklıklarını önemli ölçüde etkilemektedir. Öklid uzaklık formülü en yaygın olarak kullanılan uzaklık hesaplama formülüdür. +
 
 Öklid uzaklık ölçüsü kullanılarak iki birim arasındaki uzaklık n birim sayısı ve p değişken sayısı olmak üzere; i,j = 1,2,3……n , i. ve j. birimin birbirine olan uzaklığı +
@@ -39,7 +39,7 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ffff.PNG[R
 
 *K-Means Algoritmasının İşlem Basamakları* +
 
-image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/adimlar1_2.PNG[R]
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ad%C4%B1mlar12.PNG[R]
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/admmlar3_4.PNG[R]
 
 *!* Kümelerin kararlı yapıya geçmesinde birkaç yaklaşım söz konusudur. Bunlardan biri, hesaplanan merkezlerin koordinatlarının bir sonraki döngüde hesaplanan merkezlerin koordinatlarıyla eşit olmasıdır. Aşağıda paylaştığımız algoritma ve kod örneğinde de bu yaklaşım kullanılmıştır. +
