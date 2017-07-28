@@ -48,7 +48,7 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/grcklm.PNG
 
 *K-Means Akış Diyagramı* +
 
-image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/aksdygrm.PNG[R]
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/aksdiagrm%C4%B1.PNG[R]
 
 *!* Algoritmik olarak, oluşan yeni kümelerdeki verilerin bir önceki verilerle aynı olmasını da koşul olarak belirtebilirsiniz. Bunun nedeni, küme merkezlerini bulurken verilerin koordinatlarının ortalaması alınır. +
 
