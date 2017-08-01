@@ -65,6 +65,13 @@ center2 = [5.8,2.7,5.1,1.9]
 center3 = [7.2,3.2,6.0,1.8]
 iteration = 100
 
+def isfloat(v):
+    try:
+        float(v)
+        return True
+    except:
+        return False
+
 def distance(centersw,centersl,centerpw,centerpl,value1,value2,value3,value4):
     return math.sqrt((centersw-value1)**2 + (centersl-value2)**2 + (centerpw-value3)**2 + (centerpl-value4)**2)
 
@@ -98,14 +105,15 @@ def new_center(classvalue):
 
 with open('iris_data.txt') as openfile:
     for line in openfile:
-        inputvalue.append(line.split(","))
+        line_ = line.split(",")
+        line2 = []
+        for k in line_:
+            if not isfloat(k):
+                pass
+            else:
+                line2.append(float(k))
+        inputvalue.append(line2)
 
-for i in range(len(inputvalue)):
-    for j in range(len(inputvalue[i])):
-        if j == 0 or j % 4 != 0 :
-            inputvalue[i][j] = float(inputvalue[i][j])
-        else:
-            continue
 
 for i in range(iteration):
     backup_center1 = center1
