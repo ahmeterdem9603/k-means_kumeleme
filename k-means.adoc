@@ -76,7 +76,6 @@ def distance(centersw,centersl,centerpw,centerpl,value1,value2,value3,value4):
     return math.sqrt((centersw-value1)**2 + (centersl-value2)**2 + (centerpw-value3)**2 + (centerpl-value4)**2)
 
 def clustering(center1,center2,center3,value1,value2,value3,value4):
-    for i in range(0,1,1):
         wclass1 = distance(center1[0],center1[1],center1[2],center1[3],value1,value2,value3,value4)
         wclass2 = distance(center2[0],center2[1],center2[2],center2[3],value1,value2,value3,value4)
         wclass3 = distance(center3[0],center3[1],center3[2],center3[3],value1,value2,value3,value4)
