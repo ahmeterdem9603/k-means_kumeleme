@@ -114,7 +114,6 @@ with open('iris_data.txt') as openfile:
                 line2.append(float(k))
         inputvalue.append(line2)
 
-
 for i in range(iteration):
     backup_center1 = center1
     backup_center2 = center2
