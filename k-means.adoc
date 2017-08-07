@@ -56,6 +56,7 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/aksddf.PNG
 -----------------------------------------
 import math
 
+### giris degerleri
 inputvalue = []
 class1 = []
 class2 = []
@@ -65,16 +66,11 @@ center2 = [5.8,2.7,5.1,1.9]
 center3 = [7.2,3.2,6.0,1.8]
 iteration = 100
 
-def isfloat(v):
-    try:
-        float(v)
-        return True
-    except:
-        return False
-
+### verilerin kume merkezlerine olan uzakliklarinin hesaplandigi fonksiyon
 def distance(centersw,centersl,centerpw,centerpl,value1,value2,value3,value4):
     return math.sqrt((centersw-value1)**2 + (centersl-value2)**2 + (centerpw-value3)**2 + (centerpl-value4)**2)
 
+### verilerin merkezlere olan uzakliklarina gore kumelere ayrildigi fonksiyon
 def clustering(center1,center2,center3,value1,value2,value3,value4):
     for i in range(1):
         wclass1 = distance(center1[0],center1[1],center1[2],center1[3],value1,value2,value3,value4)
@@ -91,6 +87,7 @@ def clustering(center1,center2,center3,value1,value2,value3,value4):
         else :
             continue
 
+### olusturulan yeni kumelerdeki verilere gore yeni merkezlerin bulundugu fonksiyon
 def new_center(classvalue):
     x = 0.0
     y = 0.0
@@ -103,17 +100,20 @@ def new_center(classvalue):
         t += classvalue[i][3]
     return  [x/len(classvalue),y/len(classvalue),z/len(classvalue),t/len(classvalue)]
 
+### iris_data dosyasindan verilerin okundugu kod parcasi
 with open('iris_data.txt') as openfile:
     for line in openfile:
-        line_ = line.split(",")
-        line2 = []
-        for k in line_:
-            if not isfloat(k):
-                pass
-            else:
-                line2.append(float(k))
-        inputvalue.append(line2)
+        inputvalue.append(line.split(","))
 
+### dosyadaki verilerden kullanilacak olanlarin inputvalue listesine yazildigi kod parcasi
+for i in range(len(inputvalue)):
+    for j in range(len(inputvalue[i])):
+        if j == 0 or j % 4 != 0 :
+            inputvalue[i][j] = float(inputvalue[i][j])
+        else:
+            continue
+
+### merkezler yedeklenir, daha sonra kumeleme fonksiyonuyla yeni merkezler hesaplanir.
 for i in range(iteration):
     backup_center1 = center1
     backup_center2 = center2
@@ -123,6 +123,8 @@ for i in range(iteration):
     center1 = new_center(class1)
     center2 = new_center(class2)
     center3 = new_center(class3)
+    
+### Verilen veri setindeki kumelerin gercekten ayni verilerden olusup olusmadigini kontrol eden kod parcasi
     i1 = 0
     i2 = 0
     i3 = 0
@@ -142,6 +144,7 @@ for i in range(iteration):
                 i3 += 1
         print count1,count2,count3,j
 
+### yeni kumeler ve merkezler yazdirilir daha sonra kumeler tekrar bosaltilir
     print "****************"
     print len(class1),len(class2),len(class3)
     center1 = new_center(class1)
@@ -153,12 +156,15 @@ for i in range(iteration):
     class1 = []
     class2 = []
     class3 = []
+
+### yedeklenen merkez koordinatlari ile yeni merkez koordinatlari ayni olana kadar bu dongu devam eder.
     if backup_center1[0]-center1[0]==0 and backup_center1[1]-center1[1]==0 and \
        backup_center2[0]-center2[0]==0 and backup_center2[1]-center2[1]==0 and \
        backup_center3[0]-center3[0]==0 and backup_center3[1]-center3[1]==0:
        break
     else:
         continue
+
 
 -----------------------------------------
 
