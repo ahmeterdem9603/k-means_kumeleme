@@ -54,6 +54,8 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/aksddf.PNG
 
 [source,python]
 -----------------------------------------
+
+
 import math
 
 ### giris degerleri
@@ -72,7 +74,6 @@ def distance(centersw,centersl,centerpw,centerpl,value1,value2,value3,value4):
 
 ### verilerin merkezlere olan uzakliklarina gore kumelere ayrildigi fonksiyon
 def clustering(center1,center2,center3,value1,value2,value3,value4):
-    for i in range(1):
         wclass1 = distance(center1[0],center1[1],center1[2],center1[3],value1,value2,value3,value4)
         wclass2 = distance(center2[0],center2[1],center2[2],center2[3],value1,value2,value3,value4)
         wclass3 = distance(center3[0],center3[1],center3[2],center3[3],value1,value2,value3,value4)
@@ -84,8 +85,6 @@ def clustering(center1,center2,center3,value1,value2,value3,value4):
             class2.append(value)
         elif wclass3 < wclass2 and wclass3 < wclass1 :
             class3.append(value)
-        else :
-            continue
 
 ### olusturulan yeni kumelerdeki verilere gore yeni merkezlerin bulundugu fonksiyon
 def new_center(classvalue):
@@ -123,7 +122,7 @@ for i in range(iteration):
     center1 = new_center(class1)
     center2 = new_center(class2)
     center3 = new_center(class3)
-    
+
 ### Verilen veri setindeki kumelerin gercekten ayni verilerden olusup olusmadigini kontrol eden kod parcasi
     i1 = 0
     i2 = 0
@@ -164,6 +163,8 @@ for i in range(iteration):
        break
     else:
         continue
+
+
 
 
 -----------------------------------------
