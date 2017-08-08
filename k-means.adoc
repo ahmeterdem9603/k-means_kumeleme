@@ -117,7 +117,7 @@ for i in range(iteration):
     backup_center1 = center1
     backup_center2 = center2
     backup_center3 = center3
-    for i in range(0,len(inputvalue),1):
+    for i in range(0,len(inputvalue)):
         clustering(center1,center2,center3, inputvalue[i][0],inputvalue[i][1],inputvalue[i][2],inputvalue[i][3])
     center1 = new_center(class1)
     center2 = new_center(class2)
@@ -163,9 +163,6 @@ for i in range(iteration):
        break
     else:
         continue
-
-
-
 
 -----------------------------------------
 
