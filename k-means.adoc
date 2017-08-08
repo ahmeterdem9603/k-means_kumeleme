@@ -55,7 +55,6 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/aksddf.PNG
 [source,python]
 -----------------------------------------
 
-
 import math
 
 ### giris degerleri
@@ -117,7 +116,7 @@ for i in range(iteration):
     backup_center1 = center1
     backup_center2 = center2
     backup_center3 = center3
-    for i in range(0,len(inputvalue)):
+    for i in range(len(inputvalue)):
         clustering(center1,center2,center3, inputvalue[i][0],inputvalue[i][1],inputvalue[i][2],inputvalue[i][3])
     center1 = new_center(class1)
     center2 = new_center(class2)
@@ -131,7 +130,7 @@ for i in range(iteration):
         count1 = 0
         count2 = 0
         count3 = 0
-        for j in range(i*50,(i+1)*50,1):
+        for j in range(i*50,(i+1)*50):
             if i1 < len(class1) and class1[i1]==inputvalue[j]:
                 count1+=1
                 i1 += 1
