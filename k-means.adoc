@@ -3,7 +3,7 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/Untitled.p
 == Kümeleme Nedir ? +
 K-Means kümeleme mantığını kavrayabilmemiz için öncelikle kümelemenin tanımını yapmamız gerekir. +
 Kümeleme analizi, bir veri kümesindeki bilgileri belirli yakınlık kriterlerine göre gruplara ayırma işlemidir. 
-Bu grupların her birine *küme* denir. Kümeleme analizi işlemine ise *kümeleme* adı verilir. Kümeleme en basit tanımıyla
+Bu grupların her birine *küme* denir. *Kümeleme* ise en basit tanımıyla
 benzer özellik gösteren veri elemanlarının kendi aralarında gruplara ayrılmasıdır. +
 
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ikili.PNG[R]
@@ -11,26 +11,25 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ccc.PNG[R]
 
 == Kümeleme Yöntemleri +
 Kümeleme yöntemleri *hiyerarşik* ve *hiyerarşik olmayan (bölümlemeli)* kümeleme yöntemleri olarak iki ana bölümde incelenir.
-Konumuzun ana teması olan K-Means kümeleme algoritması hiyerarşik olmayan bir yapıya sahiptir. Kümeleme yöntemlerinin ağaç diyagramı şu şekildedir ; +
+K-Means kümeleme algoritması hiyerarşik olmayan bir yapıya sahiptir. Kümeleme yöntemlerinin ağaç diyagramı şu şekildedir ; +
 
-image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/K%C3%BCmeleme%2BY%C3%B6ntemleri%2BKaynak%20Malhotra%2CBirks%2BSf%20601%2C2006_LI.jpg[R]
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/Capture.PNG[R]
 
 == K-Means Kümeleme Algoritması +
 
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/dddd.PNG[R]
 
-Algoritmaya k-means adı verilmesinin nedeni, algoritmanın çalışmasından önce
-sabit bir küme sayısına ihtiyaç duyulmasıdır. Küme sayısı *k* ile gösterilir ve
-elemanlarının birbirlerine olan yakınlıklarına göre oluşacak grup sayısını ifade eder.
-Buna göre k önceden bilinen ve kümeleme işlemi bitene kadar değeri değişmeyen
-sabit bir pozitif tam sayıdır. +
+Algoritmaya k-means adı verilmesinin nedeni, algoritmanın çalışmasından önce sabit bir küme sayısına 
+ihtiyaç duyulmasıdır. Küme sayısı *'k'* ile gösterilir ve elemanlarının birbirlerine olan yakınlıklarına 
+göre oluşacak grup sayısını ifade eder. Buna göre 'k' önceden bilinen ve kümeleme işlemi bitene kadar 
+değeri değişmeyen sabit bir pozitif tam sayıdır. +
 
 *K-Means Algoritmasının Matematiği* +
-K-Means algoritmasında verilerin merkeze olan uzaklıklarının hesaplanmasında *öklit uzaklığı formülü* temel alınmıştır. 
-Dolayısıyla öklit (euclidean) uzaklığı hakkında bazı temel bilgiler şu şekildedir ; +
+K-Means algoritmasında verilerin merkeze olan uzaklıklarının hesaplanmasında *öklid uzaklık formülü* temel alınmıştır. 
+Dolayısıyla öklid (euclidean) uzaklığı hakkında bazı temel bilgiler şu şekildedir ; +
 
 *Öklid Uzaklığı* +
-Öklid uzaklığı formülleri standartlaştırılmış verilerle değil, işlenmemiş verilerle hesaplama yapar. Öklid uzaklıkları kümeleme analizine sıra dışı olabilecek yeni nesnelerin eklenmesinden etkilenmezler. Ancak boyutlar arasındaki ölçek farklılıkları Öklid uzaklıklarını önemli ölçüde etkilemektedir. Öklid uzaklık formülü en yaygın olarak kullanılan uzaklık hesaplama formülüdür. +
+Öklid uzaklık formülleri standartlaştırılmış verilerle değil, işlenmemiş verilerle hesaplama yapar. Öklid uzaklıkları kümeleme analizine sıra dışı olabilecek yeni nesnelerin eklenmesinden etkilenmezler. Ancak boyutlar arasındaki ölçek farklılıkları Öklid uzaklıklarını önemli ölçüde etkilemektedir. Öklid uzaklık formülü en yaygın olarak kullanılan uzaklık hesaplama formülüdür. +
 
 Öklid uzaklık ölçüsü kullanılarak iki birim arasındaki uzaklık n birim sayısı ve p değişken sayısı olmak üzere; i,j = 1,2,3……n , i. ve j. birimin birbirine olan uzaklığı +
 
@@ -43,7 +42,7 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ad%C4%B1ml
 
 *NOT* Kümelerin kararlı yapıya geçmesinde birkaç yaklaşım söz konusudur. Bunlardan biri, hesaplanan merkezlerin koordinatlarının bir sonraki döngüde hesaplanan merkezlerin koordinatlarıyla eşit olmasıdır. Aşağıda paylaştığımız algoritma ve kod örneğinde de bu yaklaşım kullanılmıştır. +
 Fakat bu yaklaşımda farklı iki nokta çiftlerinin de aynı merkezi verebilme ihtimali göz ardı edilmemelidir. +
-Diğer bir yaklaşım ise, belirli adımlar sonucu oluşan kümelerdeki elemanların, bir sonraki döngü sonucunda oluşan kümelerdeki elemanlarla aynı kümelerde bulunmasıdır. Bu yaklaşım diğerine göre daha az hata payına sahiptir. +
+Diğer bir yaklaşım ise, belirli adımlar sonucu oluşan kümelerdeki elemanların, bir sonraki döngü sonucunda oluşan kümelerdeki elemanlarla aynı kümelerde bulunmasıdır. Bu yaklaşım diğer yaklaşıma göre daha az hata payına sahiptir. +
 
 *K-Means Akış Diyagramı* +
 
