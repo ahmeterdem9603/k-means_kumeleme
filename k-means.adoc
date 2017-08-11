@@ -11,19 +11,18 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ccc.PNG[R]
 
 == Kümeleme Yöntemleri +
 Kümeleme yöntemleri *hiyerarşik* ve *hiyerarşik olmayan (bölümlemeli)* kümeleme yöntemleri olarak iki ana bölümde incelenir.
-Konumuzun ana teması olan K-Means kümeleme algoritması hiyerarşik olmayan bir yapıya sahiptir. Kümeleme yöntemlerinin ağaç diyagramı şu şekildedir ; +
+K-Means kümeleme algoritması hiyerarşik olmayan bir yapıya sahiptir. Kümeleme yöntemlerinin ağaç diyagramı şu şekildedir ; +
 
-image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/K%C3%BCmeleme%2BY%C3%B6ntemleri%2BKaynak%20Malhotra%2CBirks%2BSf%20601%2C2006_LI.jpg[R]
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/Capture.PNG[R]
 
 == K-Means Kümeleme Algoritması +
 
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/dddd.PNG[R]
 
-Algoritmaya k-means adı verilmesinin nedeni, algoritmanın çalışmasından önce
-sabit bir küme sayısına ihtiyaç duyulmasıdır. Küme sayısı *k* ile gösterilir ve
-elemanlarının birbirlerine olan yakınlıklarına göre oluşacak grup sayısını ifade eder.
-Buna göre k önceden bilinen ve kümeleme işlemi bitene kadar değeri değişmeyen
-sabit bir pozitif tam sayıdır. +
+Algoritmaya k-means adı verilmesinin nedeni, algoritmanın çalışmasından öncesabit bir küme sayısına 
+ihtiyaç duyulmasıdır. Küme sayısı *k* ile gösterilir veelemanlarının birbirlerine olan yakınlıklarına 
+göre oluşacak grup sayısını ifade eder. Buna göre k önceden bilinen ve kümeleme işlemi bitene kadar 
+değeri değişmeyen sabit bir pozitif tam sayıdır. +
 
 *K-Means Algoritmasının Matematiği* +
 K-Means algoritmasında verilerin merkeze olan uzaklıklarının hesaplanmasında *öklit uzaklığı formülü* temel alınmıştır. 
