@@ -10,7 +10,11 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ikili11.pn
 
 Aynı küme içindeki elemanların benzerliği fazla, kümeler arası benzerlik ise az olmalıdır. Bu tanımlara göre her küme temsil ettiği nesneleri en iyi ifade edecek şekilde düzenlenir. +
 
-image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ccc.PNG[R]
+Burada temel amaç , yeni gelecek ve henüz hangi sınıfta olduğu bilinmeyen verilerin var olan sınıflardan en uygun olanına yerleştirilmesidir. Gözetimsiz sınıflamada ise amaç, başlangıçta verilen ve henüz sınıflandırılmamış bir kümede veriyi anlamlı alt kümeler oluşturacak şekilde öbeklemektir. +
+
+image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/nww.PNG[R]
+
+Kümeleme analizi istatistik, biyoloji, uzaysal veri madenciliği ve makine öğrenmesi, örüntü tanıma ve resim tanıma alanlarında kullanılmaktadır. İstatistik dünyasında k-means ve k-medoids kümeleme yöntemlerini kullanan S-Plus, SPSS ve SAS gibi paket programlar yoğunlukla kullanılmaktadır. Biyolojide genetik yapıların sınıflandırılması ve yeni yapıların keşfinde, uzaysal/düzlemsel veri madenciliğinde coğrafi konuma göre yerleşim yerlerine götürülecek mal ve hizmetler için ideal yer belirlemede, yapay zekâ alanında makine öğrenmesi için gözetimsiz öğrenme metodu olarak kullanılmaktadır. +
 
 == Kümeleme Yöntemleri +
 Kümeleme yöntemleri *hiyerarşik* ve *hiyerarşik olmayan (bölümlemeli)* kümeleme yöntemleri olarak iki ana bölümde incelenir.
