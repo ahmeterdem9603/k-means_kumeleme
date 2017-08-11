@@ -6,7 +6,6 @@ Kümeleme analizi, bir veri kümesindeki bilgileri belirli yakınlık kriterleri
 Bu grupların her birine *küme* denir. Kümeleme analizi işlemine ise *kümeleme* adı verilir. Kümeleme en basit tanımıyla
 benzer özellik gösteren veri elemanlarının kendi aralarında gruplara ayrılmasıdır. +
 
-image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/tree_complete_plot%20(2).jpg[R]
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ikili.PNG[R]
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ccc.PNG[R]
 
@@ -42,7 +41,7 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ffff.PNG[R
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ad%C4%B1mlar12.PNG[R]
 image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/ad%C4%B1mlar34.PNG[R]
 
-*!* Kümelerin kararlı yapıya geçmesinde birkaç yaklaşım söz konusudur. Bunlardan biri, hesaplanan merkezlerin koordinatlarının bir sonraki döngüde hesaplanan merkezlerin koordinatlarıyla eşit olmasıdır. Aşağıda paylaştığımız algoritma ve kod örneğinde de bu yaklaşım kullanılmıştır. +
+*NOT* Kümelerin kararlı yapıya geçmesinde birkaç yaklaşım söz konusudur. Bunlardan biri, hesaplanan merkezlerin koordinatlarının bir sonraki döngüde hesaplanan merkezlerin koordinatlarıyla eşit olmasıdır. Aşağıda paylaştığımız algoritma ve kod örneğinde de bu yaklaşım kullanılmıştır. +
 Fakat bu yaklaşımda farklı iki nokta çiftlerinin de aynı merkezi verebilme ihtimali göz ardı edilmemelidir. +
 Diğer bir yaklaşım ise, belirli adımlar sonucu oluşan kümelerdeki elemanların, bir sonraki döngü sonucunda oluşan kümelerdeki elemanlarla aynı kümelerde bulunmasıdır. Bu yaklaşım diğerine göre daha az hata payına sahiptir. +
 
@@ -54,8 +53,10 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/aksddf.PNG
 
 [source,python]
 -----------------------------------------
+
 import math
 
+### giris degerleri
 inputvalue = []
 class1 = []
 class2 = []
@@ -65,11 +66,12 @@ center2 = [5.8,2.7,5.1,1.9]
 center3 = [7.2,3.2,6.0,1.8]
 iteration = 100
 
+### verilerin kume merkezlerine olan uzakliklarinin hesaplandigi fonksiyon
 def distance(centersw,centersl,centerpw,centerpl,value1,value2,value3,value4):
     return math.sqrt((centersw-value1)**2 + (centersl-value2)**2 + (centerpw-value3)**2 + (centerpl-value4)**2)
 
+### verilerin merkezlere olan uzakliklarina gore kumelere ayrildigi fonksiyon
 def clustering(center1,center2,center3,value1,value2,value3,value4):
-    for i in range(0,1,1):
         wclass1 = distance(center1[0],center1[1],center1[2],center1[3],value1,value2,value3,value4)
         wclass2 = distance(center2[0],center2[1],center2[2],center2[3],value1,value2,value3,value4)
         wclass3 = distance(center3[0],center3[1],center3[2],center3[3],value1,value2,value3,value4)
@@ -81,9 +83,8 @@ def clustering(center1,center2,center3,value1,value2,value3,value4):
             class2.append(value)
         elif wclass3 < wclass2 and wclass3 < wclass1 :
             class3.append(value)
-        else :
-            continue
 
+### olusturulan yeni kumelerdeki verilere gore yeni merkezlerin bulundugu fonksiyon
 def new_center(classvalue):
     x = 0.0
     y = 0.0
@@ -96,10 +97,12 @@ def new_center(classvalue):
         t += classvalue[i][3]
     return  [x/len(classvalue),y/len(classvalue),z/len(classvalue),t/len(classvalue)]
 
+### iris_data dosyasindan verilerin okundugu kod parcasi
 with open('iris_data.txt') as openfile:
     for line in openfile:
         inputvalue.append(line.split(","))
 
+### dosyadaki verilerden kullanilacak olanlarin inputvalue listesine yazildigi kod parcasi
 for i in range(len(inputvalue)):
     for j in range(len(inputvalue[i])):
         if j == 0 or j % 4 != 0 :
@@ -107,15 +110,18 @@ for i in range(len(inputvalue)):
         else:
             continue
 
+### merkezler yedeklenir, daha sonra kumeleme fonksiyonuyla yeni merkezler hesaplanir.
 for i in range(iteration):
     backup_center1 = center1
     backup_center2 = center2
     backup_center3 = center3
-    for i in range(0,len(inputvalue),1):
+    for i in range(len(inputvalue)):
         clustering(center1,center2,center3, inputvalue[i][0],inputvalue[i][1],inputvalue[i][2],inputvalue[i][3])
     center1 = new_center(class1)
     center2 = new_center(class2)
     center3 = new_center(class3)
+
+### Verilen veri setindeki kumelerin gercekten ayni verilerden olusup olusmadigini kontrol eden kod parcasi
     i1 = 0
     i2 = 0
     i3 = 0
@@ -123,7 +129,7 @@ for i in range(iteration):
         count1 = 0
         count2 = 0
         count3 = 0
-        for j in range(i*50,(i+1)*50,1):
+        for j in range(i*50,(i+1)*50):
             if i1 < len(class1) and class1[i1]==inputvalue[j]:
                 count1+=1
                 i1 += 1
@@ -135,6 +141,7 @@ for i in range(iteration):
                 i3 += 1
         print count1,count2,count3,j
 
+### yeni kumeler ve merkezler yazdirilir daha sonra kumeler tekrar bosaltilir
     print "****************"
     print len(class1),len(class2),len(class3)
     center1 = new_center(class1)
@@ -146,6 +153,8 @@ for i in range(iteration):
     class1 = []
     class2 = []
     class3 = []
+
+### yedeklenen merkez koordinatlari ile yeni merkez koordinatlari ayni olana kadar bu dongu devam eder.
     if backup_center1[0]-center1[0]==0 and backup_center1[1]-center1[1]==0 and \
        backup_center2[0]-center2[0]==0 and backup_center2[1]-center2[1]==0 and \
        backup_center3[0]-center3[0]==0 and backup_center3[1]-center3[1]==0:
