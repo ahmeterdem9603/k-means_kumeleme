@@ -62,21 +62,28 @@ image::https://github.com/ahmeterdem9603/k-means_kumeleme/blob/master/aksddf.PNG
 
 import math
 
-### giris degerleri
 inputvalue = []
 class1 = []
 class2 = []
 class3 = []
-center1 = [5.5,2.6,4.4,1.2]
-center2 = [5.8,2.7,5.1,1.9]
-center3 = [7.2,3.2,6.0,1.8]
+center1 = [5.5, 2.6, 4.4, 1.2]
+center2 = [5.8, 2.7, 5.1, 1.9]
+center3 = [7.2, 3.2, 6.0, 1.8]
 iteration = 100
 
-### verilerin kume merkezlerine olan uzakliklarinin hesaplandigi fonksiyon
+
+def isfloat(v):
+    try:
+        float(v)
+        return True
+    except:
+        return False
+
+
 def distance(centersw,centersl,centerpw,centerpl,value1,value2,value3,value4):
     return math.sqrt((centersw-value1)**2 + (centersl-value2)**2 + (centerpw-value3)**2 + (centerpl-value4)**2)
 
-### verilerin merkezlere olan uzakliklarina gore kumelere ayrildigi fonksiyon
+
 def clustering(center1,center2,center3,value1,value2,value3,value4):
         wclass1 = distance(center1[0],center1[1],center1[2],center1[3],value1,value2,value3,value4)
         wclass2 = distance(center2[0],center2[1],center2[2],center2[3],value1,value2,value3,value4)
@@ -90,83 +97,74 @@ def clustering(center1,center2,center3,value1,value2,value3,value4):
         elif wclass3 < wclass2 and wclass3 < wclass1 :
             class3.append(value)
 
-### olusturulan yeni kumelerdeki verilere gore yeni merkezlerin bulundugu fonksiyon
-def new_center(classvalue):
+
+
+def new_center(classValue):
     x = 0.0
     y = 0.0
     z = 0.0
     t = 0.0
-    for i in range(len(classvalue)):
-        x += classvalue[i][0]
-        y += classvalue[i][1]
-        z += classvalue[i][2]
-        t += classvalue[i][3]
-    return  [x/len(classvalue),y/len(classvalue),z/len(classvalue),t/len(classvalue)]
+    for i in range(len(classValue)):
+        x += classValue[i][0]
+        y += classValue[i][1]
+        z += classValue[i][2]
+        t += classValue[i][3]
+    return [x / len(classValue), y / len(classValue), z / len(classValue), t / len(classValue)]
 
-### iris_data dosyasindan verilerin okundugu kod parcasi
 with open('iris_data.txt') as openfile:
     for line in openfile:
-        inputvalue.append(line.split(","))
+        line_ = line.split(",")
+        line2 = []
+        for k in line_:
+            if not isfloat(k):
+                pass
+            else:
+                line2.append(float(k))
+        inputvalue.append(line2)
 
-### dosyadaki verilerden kullanilacak olanlarin inputvalue listesine yazildigi kod parcasi
-for i in range(len(inputvalue)):
-    for j in range(len(inputvalue[i])):
-        if j == 0 or j % 4 != 0 :
-            inputvalue[i][j] = float(inputvalue[i][j])
-        else:
-            continue
 
-### merkezler yedeklenir, daha sonra kumeleme fonksiyonuyla yeni merkezler hesaplanir.
 for i in range(iteration):
     backup_center1 = center1
     backup_center2 = center2
     backup_center3 = center3
-    for i in range(len(inputvalue)):
+    for i in range(0,len(inputvalue),1):
         clustering(center1,center2,center3, inputvalue[i][0],inputvalue[i][1],inputvalue[i][2],inputvalue[i][3])
     center1 = new_center(class1)
     center2 = new_center(class2)
     center3 = new_center(class3)
-
-### Verilen veri setindeki kumelerin gercekten ayni verilerden olusup olusmadigini kontrol eden kod parcasi
     i1 = 0
     i2 = 0
     i3 = 0
-    for i in range(3):
+    for n in range(3):
         count1 = 0
         count2 = 0
         count3 = 0
-        for j in range(i*50,(i+1)*50):
+        for j in range(n*50,(n+1)*50,1):
             if i1 < len(class1) and class1[i1]==inputvalue[j]:
-                count1+=1
+                count1 += 1
                 i1 += 1
             elif i2 < len(class2) and class2[i2]==inputvalue[j]:
-                count2+=1
+                count2 += 1
                 i2 += 1
             elif i3 < len(class3) and class3[i3]==inputvalue[j]:
-                count3+=1
+                count3 += 1
                 i3 += 1
-        print count1,count2,count3,j
-
-### yeni kumeler ve merkezler yazdirilir daha sonra kumeler tekrar bosaltilir
+        print count1, count2, count3, j
     print "****************"
-    print len(class1),len(class2),len(class3)
-    center1 = new_center(class1)
-    center2 = new_center(class2)
-    center3 = new_center(class3)
+    print len(class1), len(class2), len(class3)
     print center1
     print center2
     print center3
     class1 = []
     class2 = []
     class3 = []
-
-### yedeklenen merkez koordinatlari ile yeni merkez koordinatlari ayni olana kadar bu dongu devam eder.
-    if backup_center1[0]-center1[0]==0 and backup_center1[1]-center1[1]==0 and \
-       backup_center2[0]-center2[0]==0 and backup_center2[1]-center2[1]==0 and \
-       backup_center3[0]-center3[0]==0 and backup_center3[1]-center3[1]==0:
-       break
+    if backup_center1==center1 and \
+        backup_center2==center2 and \
+        backup_center3==center3:
+        break
     else:
         continue
+
 
 -----------------------------------------
 
